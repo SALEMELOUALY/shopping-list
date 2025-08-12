@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <title>تطبيق قائمة التسوق الذكي</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+</head>
+<body>
+
+  <h1>تطبيق قائمة التسوق الذكي</h1>
+
+  <div class="input-group">
+    <input type="text" id="itemName" placeholder="أدخل اسم المنتج" />
+    <input type="number" id="itemPrice" placeholder="السعر (بالدرهم)" min="0" step="0.01" />
+    
+    <div class="quantity-unit-group">
+      <input type="number" id="itemQuantity" placeholder="الكمية" min="1" />
+      <select id="itemUnit">
+        <option value="قطعة">قطعة</option>
+        <option value="كيلو">كيلو</option>
+        <option value="لتر">لتر</option>
+      </select>
+    </div>
+    
+    <input type="file" id="itemImage" accept="image/*" capture="environment" />
+    
+    <button id="scanBarcodeBtn" type="button">مسح باركود المنتج</button>
+    
+    <button onclick="addItem()">إضافة</button>
+  </div>
+
+  <div id="qr-reader" style="width: 100%; max-width: 400px; margin: 10px auto; display:none;"></div>
+
+  <ul id="shoppingList"></ul>
+
+  <!-- popup الصورة -->
+  <div id="imagePopup" class="popup">
+    <span class="close">&times;</span>
+    <img class="popup-content" id="popupImage" alt="صورة المنتج" />
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
