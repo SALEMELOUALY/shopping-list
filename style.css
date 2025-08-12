@@ -1,0 +1,253 @@
+/* عام */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  direction: rtl;
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 0 20px 40px 20px;
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  color: #344055;
+  user-select: none;
+}
+
+/* العنوان */
+h1 {
+  text-align: center;
+  font-weight: 900;
+  font-size: 2.8rem;
+  color: #1f2937;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+/* حاوية الإدخال */
+.input-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 30px;
+  background: #ffffffcc;
+  padding: 20px 25px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  transition: box-shadow 0.3s ease;
+}
+.input-group:hover {
+  box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+}
+
+/* حقول الإدخال */
+input[type="text"],
+input[type="number"],
+input[type="file"] {
+  flex: 1 1 150px;
+  padding: 14px 18px;
+  font-size: 1rem;
+  border: 2px solid #d1d5db;
+  border-radius: 12px;
+  outline-offset: 3px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background: #f9fafb;
+  cursor: text;
+}
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="file"]:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 8px #2563ebaa;
+  background: #fff;
+}
+
+/* مجموعة الكمية والوحدة */
+.quantity-unit-group {
+  display: flex;
+  gap: 10px;
+  flex: 1 1 150px;
+  align-items: center;
+}
+.quantity-unit-group input {
+  flex: 2;
+}
+.quantity-unit-group select {
+  flex: 1;
+  padding: 10px;
+  font-size: 14px;
+  border: 1.8px solid #d1d5db;
+  border-radius: 12px;
+  background: #f9fafb;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+.quantity-unit-group select:focus {
+  border-color: #2563eb;
+  outline: none;
+  box-shadow: 0 0 8px #2563ebaa;
+}
+
+/* زر المسح */
+#scanBarcodeBtn {
+  flex: 0 0 170px;
+  padding: 14px 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  background: #ea580c;
+  color: white;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(234, 88, 12, 0.7);
+  transition: background 0.35s ease, box-shadow 0.35s ease;
+  user-select: none;
+}
+#scanBarcodeBtn:hover {
+  background: #c2410c;
+  box-shadow: 0 8px 20px rgba(194, 65, 12, 0.9);
+}
+
+/* زر الإضافة */
+button[type="button"]:not(#scanBarcodeBtn),
+button[onclick] {
+  flex: 0 0 120px;
+  padding: 14px 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(37, 99, 235, 0.6);
+  transition: background 0.35s ease, box-shadow 0.35s ease;
+  user-select: none;
+}
+button[type="button"]:not(#scanBarcodeBtn):hover,
+button[onclick]:hover {
+  background: #1d4ed8;
+  box-shadow: 0 8px 20px rgba(29, 78, 216, 0.75);
+}
+
+/* قائمة التسوق */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* كل عنصر في القائمة */
+li {
+  background: #ffffffcc;
+  border-radius: 18px;
+  padding: 18px 25px;
+  margin-bottom: 18px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: transform 0.3s ease;
+  cursor: default;
+}
+li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* حاوية معلومات المنتج */
+.item-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex: 1;
+  min-width: 0;
+}
+
+/* صورة المنتج */
+.item-info img {
+  width: 80px;
+  height: 80px;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 2px 15px rgba(37, 99, 235, 0.3);
+  transition: transform 0.25s ease;
+}
+.item-info img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 30px rgba(37, 99, 235, 0.6);
+  cursor: pointer;
+}
+
+/* تفاصيل المنتج */
+.item-details {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.item-details div {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+/* زر الحذف */
+li button {
+  background: #ef4444;
+  border: none;
+  border-radius: 12px;
+  padding: 8px 16px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: white;
+  box-shadow: 0 5px 15px rgba(239, 68, 68, 0.5);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  user-select: none;
+}
+li button:hover {
+  background: #b91c1c;
+  box-shadow: 0 8px 25px rgba(185, 28, 28, 0.7);
+}
+
+/* --- البوب أب --- */
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding-top: 80px;
+}
+
+.popup-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: 20px;
+  box-shadow: 0 0 35px #2563ebcc;
+  border: 6px solid #2563eb;
+  transition: transform 0.3s ease;
+  cursor: zoom-out;
+}
+
+.close {
+  position: absolute;
+  top: 25px;
+  right: 40px;
+  color: #e0e7ff;
+  font-size: 48px;
+  font-weight: 900;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+.close:hover {
+  color: #a5b4fc;
+}
